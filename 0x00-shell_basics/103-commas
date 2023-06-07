@@ -1,1 +1,2 @@
-ls -1AF | sort -d -f --key=1.1,1.1 --key=1.2n,1.2n | sed ':a;N;$!ba;s/\n/, /g;s/\([^,]\)$/\1\n/'
+#!/bin/bash
+ls -amvp
