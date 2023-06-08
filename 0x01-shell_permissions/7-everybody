@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod 755  hello
+setfacl -m u::rwx,g::rwx,o::r-x hello
