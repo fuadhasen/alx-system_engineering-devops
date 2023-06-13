@@ -1,0 +1,3 @@
+#!/bin/bash
+num_directories=$(echo $PATH | tr -cd ':' | wc -c)
+echo "The PATH variable contains $((num_directories + 1)) directories."
