@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This script print files in current directory
+
+
+for file in *;
+do
+    if [ ! -f "$file" ] || [[ "$file" == .* ]]; then
+        continue
+    fi
+
+    filename=$(echo "$file" | cut -d'-' -f2-)
+
+    echo "$filename"
+done
+
