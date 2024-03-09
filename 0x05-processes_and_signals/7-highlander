@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Display To infinity and beyond
+
+cleanup() {
+    echo "I am invincible!!!"
+}
+
+trap cleanup SIGTERM
+
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
