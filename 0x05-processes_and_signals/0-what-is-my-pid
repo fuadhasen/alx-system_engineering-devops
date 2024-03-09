@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script display PID of current process
+
+pgrep bash
