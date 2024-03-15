@@ -2,7 +2,7 @@
 # Check if argument is provided
 
 if [ $# -ne 1 ]; then
-    name=$(echo $0 | cut -d'/' -f2-)
+    name=$(echo "$0" | cut -d'/' -f2-)
     echo "Usage: $name  {IP_ADDRESS}"
     exit 1
 fi
