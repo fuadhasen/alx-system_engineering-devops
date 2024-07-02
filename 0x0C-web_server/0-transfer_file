@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# bash script to transfer file from local to remote server
+# bash script to transfer file from local to remote servers
 
 path_local="$1"
 server_ip="$2"
