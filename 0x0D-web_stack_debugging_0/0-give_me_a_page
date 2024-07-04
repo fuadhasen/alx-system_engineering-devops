@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-#script to start apache server to return Hello Holberton
+#script to start apache2 server to return Hello Holberton
 
 sudo service apache2 start
