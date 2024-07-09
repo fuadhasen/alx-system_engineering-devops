@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#  script to automate HAproxy on a new Ubuntu machine
+
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+
+# HAProxy configuration
+config="
+frontend http_front
+  bind *:80
+  default_backend http_back
+
+backend http_back
+  balance roundrobin
+  server 436362-web-01 100.26.152.53:80 check
+  server 436362-web-02 35.174.208.133:80 check
+"
+
+echo "$config" | sudo tee -a /etc/haproxy/haproxy.cfg > /dev/null
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy > /dev/null
+
+sudo service haproxy restart
