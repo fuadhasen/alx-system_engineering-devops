@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# MySQL backup
+
+mysql_pwd=$1
+date=$(date +%d-%m-%Y)
+archive_file="${date}.tar.gz"
+
+sudo mysqldump -u root -p"$mysql_pwd" --all-databases > backup.sql
+sudo tar -czf ~/"${archive_file}" backup.sql
+
+
+
