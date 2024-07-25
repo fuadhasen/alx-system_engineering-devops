@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # bash script for web_stack_debugging_01
 
-sudo rm /etc/nginx/site-enabled/default
-ln -s /etc/nginx/site-available/default /etc/nginx/site-enabled/default
+sudo rm /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/site-enabled/default
 
 sudo service nginx restart
