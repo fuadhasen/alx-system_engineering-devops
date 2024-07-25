@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # script to run nginx as nginx user manually
-
 sudo chmod +r /etc/nginx/nginx.conf
 sudo sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 pkill apache2
 sudo -u "nginx" service nginx restart
-
