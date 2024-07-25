@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 # bash script for web_stack_debugging_01
 
-sudo apt-get update -y
-sudo apt-get install -y nginx
-sudo service nginx enable
-sudo service nginx start
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+pkill -1 nginx
