@@ -7,7 +7,6 @@ import requests
 import sys
 
 
-
 if __name__ == "__main__":
     _id = int(sys.argv[1])
 
@@ -35,4 +34,4 @@ if __name__ == "__main__":
 
     filename = '{}.json'.format(user.get('id'))
     with open(filename, 'w', encoding='utf-8') as _file:
-        json.dump(data, _file, indent=4)
+        json.dump(data, _file)
