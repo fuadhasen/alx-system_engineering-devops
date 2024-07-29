@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-""" python script Export to CSV
+""" python script Export to json
 """
 import csv
+import json
 import requests
 import sys
+
 
 
 if __name__ == "__main__":
@@ -21,18 +23,16 @@ if __name__ == "__main__":
         # list of dict contain user info like tasks ...
         tasks = res.json()
 
-    with open(
-        '{}.csv'.format(user.get('id')),
-        'w',
-        newline=''
-    ) as _file:
-        writer = csv.writer(_file, quotechar='"', quoting=csv.QUOTE_ALL)
-        # format is in this way
-        # writer.writerow(["USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"])
-        for task in tasks:
-            writer.writerow([
-                task.get('userId'),
-                user.get('username'),
-                task.get('completed'),
-                task.get('title')
-            ])
+    list_task = []
+    for task in tasks:
+        list_task.append({
+            "task": task.get('title'),
+            "completed": task.get('completed'),
+            "username": user.get('username')
+        })
+
+    data = {user.get('id'): list_task}
+
+    filename = '{}.json'.format(user.get('id'))
+    with open(filename, 'w', encoding='utf-8') as _file:
+        json.dump(data, _file, indent=4)
