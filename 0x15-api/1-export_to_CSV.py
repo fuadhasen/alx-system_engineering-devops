@@ -21,17 +21,18 @@ if __name__ == "__main__":
         # list of dict contain user info like tasks ...
         tasks = res.json()
 
-    with open('{}.csv'.format(user.get('id')),
-            mode='w', encoding='utf-8') as _file:
-        writer = csv.writer(_file)
+    with open(
+        '{}.csv'.format(user.get('id')),
+        mode='w',
+        encoding='utf-8'
+    ) as _file:
+        writer = csv.writer(_file, quotechar='"', quoting=csv.QUOTE_ALL)
         # format is in this way
         # writer.writerow(["USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"])
         for task in tasks:
             writer.writerow([
-                str(task.get('userId')),
-                str(user.get('name')),
-                str(task.get('completed')),
-                str(task.get('title'))
+                task.get('userId'),
+                user.get('name'),
+                task.get('completed'),
+                task.get('title')
             ])
-
-
