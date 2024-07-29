@@ -32,7 +32,7 @@ if __name__ == "__main__":
         for task in tasks:
             writer.writerow([
                 task.get('userId'),
-                user.get('name'),
+                user.get('username'),
                 task.get('completed'),
                 task.get('title')
             ])
