@@ -23,8 +23,8 @@ if __name__ == "__main__":
 
     with open(
         '{}.csv'.format(user.get('id')),
-        mode='w',
-        encoding='utf-8'
+        'w',
+        newline=''
     ) as _file:
         writer = csv.writer(_file, quotechar='"', quoting=csv.QUOTE_ALL)
         # format is in this way
