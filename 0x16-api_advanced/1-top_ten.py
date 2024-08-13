@@ -8,7 +8,7 @@ import requests
 
 def top_ten(subreddit):
     """function for api request"""
-    url = "https://api.reddit.com/r/{}/hot".format(
+    url = "https://api.reddit.com/r/{}/hot?limit=10".format(
             subreddit)
     headers = {'User-Agent': 'CustomClient/1.0'}
 
@@ -19,9 +19,4 @@ def top_ten(subreddit):
 
     res = res.json()
     data = res.get('data', {}).get('children', [])
-    if not data:
-        print('None')
-
-    for i in range(10):
-        title = data[i].get('data').get('title')
-        print(title)
+    print([d['data']['title'] for d in data])
